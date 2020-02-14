@@ -50,6 +50,16 @@ export class TbnadminService {
       )
   }
 
+
+  // HttpClient API get() method => Fetch News Flash Articles
+  getFlashNews(): Observable<Article> {
+    return this.http.get<Article>(this.apiURL + '/articlesFlash')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
   // HttpClient API get() method => Fetch article
   getArticle(id): Observable<Article> {
     return this.http.get<Article>(this.apiURL + '/articles/' + id)

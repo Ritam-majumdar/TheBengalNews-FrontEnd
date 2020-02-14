@@ -1,6 +1,71 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-    <button mat-button click()="openArticle()"><mat-grid-tile>প্রতিবেদন </mat-grid-tile></button>
-    <button mat-button click()="openMenu()"><mat-grid-tile>মেনু </mat-grid-tile></button>
-    <button mat-button click()="openKeyword()"><mat-grid-tile>কীওয়ার্ড </mat-grid-tile></button>
-    <button mat-button click()="openArticle()"><mat-grid-tile>এডভার্টাইসমেন্ট </mat-grid-tile></button>
-  </mat-grid-list>
+<h1>দ্য বেঙ্গল নিউজ অ্যাডমিন</h1>
+
+<div class="dashboard-card">
+  <div class="group-card">
+    <mat-card class="tile-card" style="background-color: #99cfe0; color: red;">
+      <button mat-button (click)="openArticles()">
+        <h1>প্রতিবেদন <i class="material-icons">
+            assignment
+          </i></h1>
+
+      </button>
+    </mat-card>
+
+    <mat-card class="tile-card" style="background-color: #add8e6; color: red;">
+      <button mat-button (click)="openKeywords()">
+        <h1>কীওয়ার্ড <i class="material-icons">
+            sort_by_alpha
+          </i></h1>
+      </button>
+    </mat-card>
+
+    <mat-card class="tile-card" style="background-color: #c1e1ec; color: red;">
+      <button mat-button (click)="openAds()">
+        <h1>বিজ্ঞাপন <i class="material-icons">
+            shop
+          </i></h1>
+      </button>
+    </mat-card>
+
+    <mat-card class="tile-card" style="background-color: #d4ebf2; color: red;">
+      <button mat-button (click)="openLogo()">
+        <h1>লোগো <i class="material-icons">
+            add_photo_alternate
+          </i></h1>
+      </button>
+    </mat-card>
+  </div>
+  <div class="group-card">
+    <mat-card class="tile-card" style="background-color: #e0ab99; color: blue;">
+      <button mat-button (click)="openMenus()">
+        <h1>মেনু <i class="material-icons">
+            featured_play_list
+          </i></h1>
+
+      </button>
+    </mat-card>
+    <mat-card class="tile-card" style="background-color: #e6bbad; color: blue">
+      <button mat-button (click)="openWebsite()">
+        <h1>ওয়েবসাইট <i class="material-icons">
+            airplay
+          </i></h1>
+      </button>
+    </mat-card>
+    <mat-card class="tile-card" style="background-color: #eccbc1; color: blue">
+      <button mat-button (click)="openAccount()">
+        <h1>একাউন্ট <i class="material-icons">
+            person
+          </i></h1>
+      </button>
+    </mat-card>
+    <mat-card class="tile-card" style="background-color: #f2dbd4; color: blue">
+      <button mat-button (click)="openSettings()">
+        <h1>সেটিংস <i class="material-icons">
+            build
+          </i></h1>
+      </button>
+    </mat-card>
+
+  </div>
+</div>
+<button mat-flat-button color="warn" (click)="logout()" style="float: right;">LogOut</button>

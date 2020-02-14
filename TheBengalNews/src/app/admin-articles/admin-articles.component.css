@@ -58,5 +58,9 @@ table {
     background-color: green;
     color: white;
   }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
   
   

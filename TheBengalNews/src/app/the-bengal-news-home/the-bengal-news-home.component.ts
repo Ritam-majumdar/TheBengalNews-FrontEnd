@@ -29,6 +29,7 @@ export class TheBengalNewsHomeComponent implements OnInit {
   topNewsArticle: Article;
   columnsToDisplay = ['title', 'date', 'author', 'place', 'mMenu', 'ddMenu'];
   dataSource: any = [];
+  isMobile: boolean = false;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -36,6 +37,9 @@ export class TheBengalNewsHomeComponent implements OnInit {
   constructor(private tbnadminService: TbnadminService, private route: Router) { }
 
   ngOnInit() {
+    if (window.screen.width <= 768) { // 768px portrait
+      this.isMobile = true;
+    }
     this.getArticles();
   }
 

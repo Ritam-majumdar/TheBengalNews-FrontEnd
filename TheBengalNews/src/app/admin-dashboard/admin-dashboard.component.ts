@@ -13,16 +13,24 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  openArticle(){
-    this.router.navigate['/admin-articles'];
+  openArticles(){
+    this.router.navigate(['/articles']);
   }
 
-  openMenu(){
-    this.router.navigate['/manage-menus'];
+  openMenus(){
+    this.router.navigate(['/manage-menus']);
   }
 
-  openKeyword(){
-    this.router.navigate['/admin-keywords'];
+  openKeywords(){
+    console.log("Open Keyword");
+    this.router.navigate(['/keywords']);
+  }
+
+  logout(){
+    if (window.confirm('Are you sure, you want to logout?')){
+    localStorage.removeItem('TbnToken');
+    this.router.navigate(['/home']);
+    }
   }
 
 }

@@ -35,6 +35,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {MatDialogModule} from "@angular/material";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { TheBengalNewsHomeComponent } from './the-bengal-news-home/the-bengal-news-home.component';
 import { NewsFlashComponent } from './news-flash/news-flash.component';
@@ -47,7 +48,8 @@ import { TheBengalNewsArticleComponent } from './the-bengal-news-article/the-ben
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
-
+import { AuthGuard } from './auth/auth.guard';
+import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { AdminSignupComponent } from './admin-signup/admin-signup.component';
     TheBengalNewsArticleComponent,
     AdminLoginComponent,
     AdminDashboardComponent,
-    AdminSignupComponent
+    AdminSignupComponent,
+    MobileHeaderComponent
     
   ],
   imports: [
@@ -94,9 +97,10 @@ import { AdminSignupComponent } from './admin-signup/admin-signup.component';
     JwSocialButtonsModule,
     MatSidenavModule,
     ShareButtonsModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [VideoDialogComponent]
 })

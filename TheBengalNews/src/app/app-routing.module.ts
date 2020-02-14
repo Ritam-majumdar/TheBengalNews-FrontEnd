@@ -13,16 +13,18 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { from } from 'rxjs';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', component: TheBengalNewsHomeComponent },
   { path: 'home', component: TheBengalNewsHomeComponent },
   { path: 'home/:mMenu/:ddMenu', component: TheBengalNewsArticlesByMenuComponent },
   { path: 'home/:articletitle', component: TheBengalNewsArticleComponent },
-  { path: 'tbnadminsignup', component: AdminArticlesComponent },
-  { path: 'tbnadminlogin', component: AdminArticlesComponent },
+  { path: 'tbnadminsignup', component: AdminSignupComponent },
+  { path: 'tbnadminlogin', component: AdminLoginComponent },
+  { path: 'tbn-admin-dashboard', component: AdminDashboardComponent},
   { path: 'articles', component: AdminArticlesComponent },
-  { path: 'create-article', component: AdminCreateArticleComponent },
+  { path: 'create-article', component: AdminCreateArticleComponent,canActivate:[AuthGuard] },
   { path: 'edit-article/:articleId', component: AdminEditArticleComponent },
   { path: 'manage-menus', component: AdminMenusComponent },
   { path: 'edit-menus/:mainMenuId', component: AdminEditMenusComponent },

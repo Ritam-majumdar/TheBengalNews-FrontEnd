@@ -1,17 +1,20 @@
+<mat-card [ngClass]="isMobile ? 'top-card-mobile': 'top-card'">
+    <div>
+        <button mat-button (click)="showTopArticle(topNewsArticle.title)">
+            <img src="{{topNewsArticle.articleImage}}" style="width:100%; height:auto">
+            <h2>{{topNewsArticle.title}}</h2>
+        </button>
+    </div>
+    <div>
+        <h2><i class="material-icons">
+                reorder
+            </i> নিউজ ফ্ল্যাশ <i class="material-icons">
+                offline_bolt
+                </i></h2>
+        <app-news-flash></app-news-flash>
+    </div>
 
-            <mat-card class="top-card">
-                <div>
-                    <button mat-button (click)="showTopArticle(topNewsArticle.title)">
-                    <img src="{{topNewsArticle.articleImage}}" width="98%" height="400px">
-                    <h2>{{topNewsArticle.title}}</h2>
-                </button>
-                </div>
-                <div>
-                <h2 style="border: 1px solid black;">News Flash</h2>
-                <app-news-flash></app-news-flash>
-            </div>
-            
-        </mat-card>
+</mat-card>
 
 <!-- <div class="mat-elevation-z8">
             

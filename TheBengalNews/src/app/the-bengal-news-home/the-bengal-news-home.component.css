@@ -1,6 +1,13 @@
 .top-card{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
+  margin-bottom: 1%;
+}
+
+.top-card-mobile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1%;
 }

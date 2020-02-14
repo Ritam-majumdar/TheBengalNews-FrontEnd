@@ -1,7 +1,8 @@
-<div class="toolbar" role="banner">
-    <!-- <a href="#home">
-        <img width="80" alt="Angular Logo" src="../assets/Images/Logo.jpg" /></a> -->
-    <!-- <div *ngFor="let mainMenu of mainMenus">
+<!-- <div class="toolbar" role="banner">
+    <a href="#home">
+        <img width="80" alt="Angular Logo" src="../assets/Images/Logo.jpg" /></a>
+        <button mat-button [matMenuTriggerFor]="menus">Menus</button>
+    <div *ngFor="let mainMenu of mainMenus">
         <div class="dropdown">
             <button class="dropbtn">{{mainMenu.title}}
                 <i class="material-icons">
@@ -9,13 +10,21 @@
                 </i>
             </button>
             <div class="dropdown-content">
-                <span *ngFor="let ddMenu of ddMenus"><a *ngIf="ddMenu.mainMenu == mainMenu.title" (click)="gotoMenu(mainMenu.title, ddMenu.title)">{{ddMenu.title}}</a></span>
+                <span mat-button *ngFor="let ddMenu of ddMenus"> <a *ngIf="ddMenu.mainMenu == mainMenu.title" (click)="gotoMenu(mainMenu.title, ddMenu.title)">{{ddMenu.title}}</a></span>
             </div>
         </div>
-    </div> -->
-</div>
+    </div>
+</div> -->
 
 
+
+<mat-menu #menus="matMenu">
+  <button mat-menu-item *ngFor="let mainMenu of mainMenus" (mouseenter)="setMainMenu(mainMenu.title)" [matMenuTriggerFor]= "ddmenus">{{mainMenu.title}}</button>
+</mat-menu>
+
+<mat-menu #ddmenus ="matMenu">
+    <span *ngFor="let ddMenu of ddMenus"><button mat-button *ngIf="ddMenu.mainMenu == refMenu" (click)="gotoMenu(refMenu, ddMenu.title)">{{ddMenu.title}}</button></span>
+</mat-menu>
 
 <div class="content">
     <router-outlet></router-outlet>

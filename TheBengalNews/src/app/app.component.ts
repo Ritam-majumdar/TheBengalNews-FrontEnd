@@ -20,11 +20,16 @@ export class AppComponent implements OnInit{
   ddMenusJson: any = [];
   ddMenus: DdMenu[];
   ddMenusMainMenu: DdMenu[];
+  refMenu: string = "";
+  isMobile: boolean = false;
 
   constructor(private tbnadminService: TbnadminService, private router: Router) { }
 
   ngOnInit() {
     
+    if (window.screen.width <= 768) { // 768px portrait
+      this.isMobile = true;
+    }
     this.getMainMenus();
     this.getDdMenus();
   }
@@ -60,6 +65,9 @@ export class AppComponent implements OnInit{
   gotoMenu(mMenu, ddMenu){
     
     this.router.navigateByUrl('/home/'+ mMenu+ '/' + ddMenu);
+  }
+  setMainMenu(mMenu){
+    this.refMenu = mMenu;
   }
 }
 

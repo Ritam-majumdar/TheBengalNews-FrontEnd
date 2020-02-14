@@ -1,5 +1,8 @@
 <div class="container">
     <ul>
+      <li *ngFor="let article of articles">
+        <h3>{{article.title}}</h3>
+      </li>
       <li>
         <h2>Head line 1</h2>
         <p>News detail just a line jhghdsbd hsdssdhjhdjshdjsahdjs</p>
@@ -35,3 +38,8 @@
       
     </ul>
   </div>
+  <!-- <ul>
+    <li *ngFor="let article of articles">
+      <h2>{{article.title}}</h2>
+    </li>
+  </ul> -->

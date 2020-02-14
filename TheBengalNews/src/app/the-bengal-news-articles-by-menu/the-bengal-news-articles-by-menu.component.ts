@@ -26,7 +26,7 @@ export class TheBengalNewsArticlesByMenuComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit() {
-    if (window.screen.width <= 1140) { // 768px portrait
+    if (window.screen.width <= 768) { // 768px portrait
       this.mobile = true;
     }
     console.log(this.mobile);
