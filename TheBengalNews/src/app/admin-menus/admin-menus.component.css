@@ -1,0 +1,19 @@
+mat-chip-list{
+  padding: 2%;
+}
+
+  mat-chip {
+    padding: 3%;
+  }
+
+  
+
+  .create-menu-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    border-radius: 10%;
+    background-color: aliceblue;
+  }

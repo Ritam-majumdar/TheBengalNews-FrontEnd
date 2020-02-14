@@ -1,0 +1,89 @@
+<mat-card class="article-table-card">
+
+    <mat-form-field class="tableFilter">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    <button class="mat-button mat-raised-button createButton" routerLink="/create-article"><h3>Create A New Article</h3></button>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="color: blue;"> শিরোনাম </th>
+            <td mat-cell *matCellDef="let element" style="text-align: left; color: blue;"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mMenu">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> মেইন মেনু </th>
+            <td mat-cell *matCellDef="let element"> {{element.mMenu}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ddMenu">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ডি ডি মেনু </th>
+            <td mat-cell *matCellDef="let element"> {{element.ddMenu}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="topNews">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> টপ নিউজ </th>
+            <td mat-cell *matCellDef="let element"> {{element.topNews}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="topNewsDdMenu">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> টপ নিউজ ডি ডি মেনু </th>
+            <td mat-cell *matCellDef="let element"> {{element.topNewsDdMenu}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="flashNews">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ফ্ল্যাশ নিউজ </th>
+            <td mat-cell *matCellDef="let element"> {{element.flashNews}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="video">
+            <th mat-header-cell *matHeaderCellDef style="color: red;"> Video </th>
+            <td mat-cell *matCellDef="let element" style="color: red;"> <span class="mat-button"
+                    (click)="openDialog(element.youtubeLink)"><i class="material-icons" style="vertical-align: middle;">
+                        video_library
+                    </i></span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef style="color: green;"> Edit </th>
+            <td mat-cell *matCellDef="let element" style="color: green;"> <span class="edit" class="mat-button"
+                    routerLink="/edit-article/{{element._id}}"><i class="material-icons" style="vertical-align: middle;">
+                        create
+                    </i></span> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef style="color: red;"> Delete </th>
+            <td mat-cell *matCellDef="let element" style="color: red;">
+                <span class="delete" class="mat-button" (click)="deleteArticle(element._id)">
+                    <i class="material-icons" style="vertical-align: middle;">
+                        delete
+                    </i>
+                </span> 
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                <div class="example-element-detail"
+                    [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                    <div class="example-element-description" style="white-space: pre-line">
+                        <p [innerHTML]=element.content style="text-align: left; font-weight: normal;"></p>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card>
+
+
+<!-- <iframe id="ytplayer" type="text/html" width="640" height="360" [src]="video | safe" frameborder="0"></iframe> -->

@@ -1,0 +1,6 @@
+<h3>ছবি আপলোড করুন</h3>
+<mat-card>
+<input type="file" (change)="onFileSelected($event)">
+<button mat-flat-button color="warn" (click)="onUpload()">Upload</button>
+<button *ngIf="uploaded" mat-flat-button color="primary" (click)="onSave()">Save</button>
+</mat-card>

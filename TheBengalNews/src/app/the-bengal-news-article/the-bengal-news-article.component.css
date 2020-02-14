@@ -1,0 +1,17 @@
+.article-card{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1%;
+}
+.card-content{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1%;
+
+}
+.responsive{
+    width: 100%;
+  height: auto;
+}

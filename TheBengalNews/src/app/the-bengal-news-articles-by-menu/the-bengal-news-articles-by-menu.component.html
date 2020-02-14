@@ -1,0 +1,65 @@
+
+<mat-card style="padding: 2%;">
+    <mat-card-content style="width: 70%; float: left; margin-right: 5%;">
+        <img src="{{topNewsArticle.articleImage}}" width="100%" height="300rem">
+        <h2>{{topNewsArticle.title}}</h2>
+    </mat-card-content>
+    
+    <mat-card-content><h3>News Flash</h3><app-news-flash></app-news-flash></mat-card-content >
+
+</mat-card>
+<div class="mat-elevation-z8">
+
+    
+    
+
+    <mat-card [ngClass]="mobile ? 'card-mobile': 'card-normal'">
+        <mat-toolbar>
+            <mat-toolbar-row>
+                
+                <span class="example-spacer"></span>
+                <mat-form-field class="tableFilter">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                </mat-form-field>
+              </mat-toolbar-row>
+            </mat-toolbar>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+
+        <ng-container matColumnDef="image">
+            <td mat-cell *matCellDef="let element" style="width: 30%;"> <img src="{{element.articleImage}}" width="100%"> </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="title">
+            <td mat-cell *matCellDef="let element" style="padding: 1%;"> 
+                <table>
+                    <tr>
+                        <td>
+                            {{element.place}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h3>{{element.title}}</h3>
+                        </td>
+                    </tr>
+
+                    <tr><td></td></tr>
+                    <tr></tr>
+                    <tr>
+                        <td>
+                            {{element.author}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </ng-container>
+
+
+
+        <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card>
+</div>

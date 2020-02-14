@@ -1,0 +1,124 @@
+<mat-card class="create-artcle-card">
+    <mat-card-header>
+        <h1 class="mb-12 text-center">একটি নতুন প্রতিবেদন </h1>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card class="titles-card">
+            <div class="form-group">
+                <h3>শিরোনাম :</h3>
+                <textarea cols="70" rows="3" type="text" [(ngModel)]="article.title" class="form-control"
+                    placeholder="Title"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>English Title :</h3>
+                <textarea cols="70" rows="3" type="text" [(ngModel)]="article.titleEnglish" class="form-control"
+                    placeholder="Title English"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="author-card">
+            <div class="form-group">
+                <h3>প্রতিবেদক  :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="article.author" class="form-control"
+                    placeholder="Author"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>স্থান :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="article.place" class="form-control"
+                    placeholder="Place"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>ইউটিউব কোড :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="article.youtubeLink" class="form-control"
+                    placeholder="Youtube Code"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>তারিখ :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="article.dateBengali" class="form-control"
+                    placeholder="Date"></textarea>
+            </div>
+
+
+        </mat-card>
+        <mat-card class="menu-card">
+            <div class="form-group">
+                <h3>মেইন মেনু :</h3>
+                <mat-select [(ngModel)]="article.mMenu" class="form-control" placeholder="Main Menu"
+                    (selectionChange)="getDdMenus($event.value)">
+                    <mat-option *ngFor="let menu of mainMenus" [value]="menu.title">{{menu.title}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>ডি ডি মেনু :</h3>
+                <mat-select [(ngModel)]="article.ddMenu" class="form-control" placeholder="DD Menu">
+                    <mat-option *ngFor="let ddmenu of ddMenus" [value]="ddmenu.title">{{ddmenu.title}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <mat-checkbox [(ngModel)]="article.topNews" [labelPosition]="before">
+                    <h3>টপ নিউজ</h3>
+                </mat-checkbox>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <mat-checkbox [(ngModel)]="article.topNewsDdMenu" [labelPosition]="before">
+                    <h3> টপ নিউজ ডি ডি মেনু </h3>
+                </mat-checkbox>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <mat-checkbox [(ngModel)]="article.flashNews" [labelPosition]="before">
+                    <h3>ফ্ল্যাশ নিউজ</h3>
+                </mat-checkbox>
+            </div>
+
+        </mat-card>
+        <mat-card class="content-card">
+            <div class="form-group">
+                <h3>প্রতিবেদন অনুচ্ছেদ  :</h3>
+                <textarea cols="180" rows="20" type="text" [(ngModel)]="article.content" class="form-control"
+                    placeholder="Content"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="image-card">
+            <app-upload-image (messageEvent)="receiveMessage($event)"></app-upload-image>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>ছবির ইউআরএল :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="article.articleImage" class="form-control"
+                    placeholder="Image Url"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>ছবির শিরোলিপি :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="article.imageCaption" class="form-control"
+                    placeholder="Image Caption"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="keyword-card">
+            <button mat-button (click)="detectKeyWords()">Auto Detetct Key Words</button>
+            <mat-chip-list>
+                <mat-chip *ngFor="let keywordA of availableKeyWords">
+                    {{keywordA}}
+
+                </mat-chip>
+            </mat-chip-list>
+        </mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+
+        <div class="form-group" style="text-align: center;">
+            <button mat-raised-button color="primary" (click)="addArticle()">
+                <h2>Create Article</h2>
+            </button>
+        </div>
+
+    </mat-card-actions>
+</mat-card>

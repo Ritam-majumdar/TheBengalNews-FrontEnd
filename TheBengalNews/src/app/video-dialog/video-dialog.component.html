@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Hello {{str}}</h2>
+
+<mat-dialog-content>
+  
+        <iframe id="ytplayer" type="text/html" width="640" height="360" [src]="video | safe" frameborder="0"></iframe>
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+</mat-dialog-actions>

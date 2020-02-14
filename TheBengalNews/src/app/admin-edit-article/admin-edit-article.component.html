@@ -1,0 +1,114 @@
+<mat-card class="edit-artcle-card">
+    <mat-card-header>
+        <h1 class="mb-12 text-center">{{articleData.title}}</h1>
+    </mat-card-header>
+    <hr>
+    <mat-card-content>
+        <mat-card class="image-card">
+            <img src="{{articleData.articleImage}}" width="30%">
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>Image :</h3>
+                <textarea type="text" cols="30" rows="2" [(ngModel)]="articleData.articleImage" class="form-control"
+                    placeholder="Image Url"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <app-upload-image (messageEvent)="receiveMessage($event)"></app-upload-image>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>Image Caption :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="articleData.imageCaption" class="form-control"
+                    placeholder="Image Caption"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="title-card">
+            <div class="form-group">
+                <h3>Title :</h3>
+                <textarea cols="70" rows="3" type="text" [(ngModel)]="articleData.title" class="form-control"
+                    placeholder="Title"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>Enter Title in English :</h3>
+                <textarea cols="70" rows="3" type="text" [(ngModel)]="articleData.titleEnglish" class="form-control"
+                    placeholder="Title in English"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="author-card">
+            <div class="form-group">
+                <h3>Author :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="articleData.author" class="form-control"
+                    placeholder="Author"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>Place :</h3>
+                <textarea cols="30" rows="2" type="text" [(ngModel)]="articleData.place" class="form-control"
+                    placeholder="Place"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>Youtube Link :</h3>
+                <textarea type="text" cols="30" rows="2" [(ngModel)]="articleData.youtubeLink" class="form-control"
+                    placeholder="Youtube Link"></textarea>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>Date :</h3>
+                <textarea type="text" cols="30" rows="2" [(ngModel)]="articleData.dateBengali" class="form-control"
+                    placeholder="Date"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="content-card">
+            <div class="form-group">
+                <h3>Content :</h3>
+                <textarea cols="180" rows="20" type="text" [(ngModel)]="articleData.content" class="form-control"
+                    placeholder="Content"></textarea>
+            </div>
+        </mat-card>
+        <mat-card class="menu-card">
+            <div class="form-group">
+                <h3>Main Menu :</h3>
+                <mat-select [(ngModel)]="articleData.mMenu" class="form-control" placeholder="Main Menu"
+                    (selectionChange)="getDdMenus($event.value)">
+                    <mat-option *ngFor="let menu of mainMenus" [value]="menu.title">{{menu.title}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <span class="example-spacer"></span>
+            <div class="form-group">
+                <h3>DD Menu :</h3>
+                <mat-select [(ngModel)]="articleData.ddMenu" class="form-control" placeholder="DD Menu"
+                    style="width: 150%;">
+                    <mat-option *ngFor="let ddmenu of ddMenus" [value]="ddmenu.title">{{ddmenu.title}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <span class="example-spacer"></span>
+            <mat-checkbox [(ngModel)]="articleData.topNews" [labelPosition]="before">Set as Top News</mat-checkbox>
+            <span class="example-spacer"></span>
+            <mat-checkbox [(ngModel)]="articleData.topNewsDdMenu" [labelPosition]="before">Set as Top News for Dropdown Menu</mat-checkbox>
+                <span class="example-spacer"></span>
+                <mat-checkbox [(ngModel)]="articleData.flashNews" [labelPosition]="before">Set as Flash News
+                </mat-checkbox>
+        </mat-card>
+        <mat-card class="keyword-card">
+            <h3>Keywords: </h3>
+            <mat-chip-list>
+                <mat-chip *ngFor="let keyword of articleData.keywords">
+                    {{keyword}}
+
+                </mat-chip>
+            </mat-chip-list>
+        </mat-card>
+
+
+    </mat-card-content>
+
+
+    <mat-card-actions>
+        <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" (click)="editArticle()">Update Article</button>
+        </div>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,43 @@
+<h2 class="mb-3 text-center">মেইন মেনু তালিকা : <button mat-button (click)="refresh()" style="color:blue;"><i class="material-icons">
+    autorenew
+    </i></button></h2>
+
+<mat-chip-list>
+    <mat-chip *ngFor="let mainMenu of mainMenus">
+        <h1>{{mainMenu.title}}<br></h1>
+        <!-- <h3>Position: {{mainMenuOrdered.position}}</h3> -->
+        <button mat-button routerLink="/edit-menus/{{mainMenu._id}}">
+            <i class="material-icons" style="color:green"> create </i>
+        </button>
+        <button mat-button (click)="deleteMainMenu(mainMenu._id)">
+            <i class="material-icons"mat-button (click)="deleteMainMenu(mainMenu._id)" style="color:red"> delete_sweep </i>
+        </button>
+    </mat-chip>
+</mat-chip-list>
+
+<mat-card class="create-menu-card">
+<h2 class="mb-3 text-center">নতুন মেইন মেনু তৈরি করুন :</h2>
+
+<div class="form-group">
+    <h3>টাইটেল : </h3>
+    <textarea cols="25" rows="2" type="text" [(ngModel)]="mainMenu.title" class="form-control"
+        placeholder="Title"></textarea>
+</div>
+
+<div class="form-group">
+    <h3>টাইটেল English : </h3>
+    <textarea cols="25" rows="2" type="text" [(ngModel)]="mainMenu.titleEnglish" class="form-control"
+        placeholder="Title in English"></textarea>
+</div>
+
+
+<!-- <div class="form-group">
+    <h3>Enter Position: </h3>
+    <input type="number" [(ngModel)]="mainMenu.position" class="form-control" placeholder="Position">
+</div> -->
+
+<div class="form-group">
+    <button mat-raised-button color="primary" (click)="addMainMenu()">নতুন মেইন মেনু</button>
+</div>
+</mat-card>
+

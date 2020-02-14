@@ -1,0 +1,64 @@
+
+            <mat-card class="top-card">
+                <div>
+                    <button mat-button (click)="showTopArticle(topNewsArticle.title)">
+                    <img src="{{topNewsArticle.articleImage}}" width="98%" height="400px">
+                    <h2>{{topNewsArticle.title}}</h2>
+                </button>
+                </div>
+                <div>
+                <h2 style="border: 1px solid black;">News Flash</h2>
+                <app-news-flash></app-news-flash>
+            </div>
+            
+        </mat-card>
+
+<!-- <div class="mat-elevation-z8">
+            
+            <mat-card style="width: 70%; float: left; margin: 2%;">
+                <mat-card-content>
+                    <img src="{{topNewsArticle.articleImage}}" width="100%" height="300rem">
+                </mat-card-content>  
+                <mat-card-content>
+                    <h2>{{topNewsArticle.title}}</h2>
+                </mat-card-content>  
+                
+            </mat-card>
+                        <app-news-flash></app-news-flash>
+    
+    <mat-form-field class="tableFilter">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+
+        <ng-container matColumnDef="title">
+            <td mat-cell *matCellDef="let element" style="text-align: left; color: blue;"> <span class="mat-button" (click)="deleteArticle(element._id)">{{element.title}}</span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <td mat-cell *matCellDef="let element" style="text-align: left;">
+                {{element.createdAt | date: 'dd-MM-yyyy /hh-mm a'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="author">
+            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="place">
+            <td mat-cell *matCellDef="let element"> {{element.place}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mMenu">
+            <td mat-cell *matCellDef="let element"> {{element.mMenu}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ddMenu">
+            <td mat-cell *matCellDef="let element"> {{element.ddMenu}} </td>
+        </ng-container>
+
+
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" ></tr>
+    </table>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+ -->

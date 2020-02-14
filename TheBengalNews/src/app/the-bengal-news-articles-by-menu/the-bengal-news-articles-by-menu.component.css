@@ -1,0 +1,15 @@
+.mat-row{
+    background-color: aqua;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .card-mobile{
+      width: 100%;
+  }
+
+  .card-normal{
+      width: 70%;
+  }

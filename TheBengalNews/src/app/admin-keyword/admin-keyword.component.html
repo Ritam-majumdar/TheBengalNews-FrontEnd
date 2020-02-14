@@ -1,0 +1,24 @@
+<table>
+    <tr>
+        <td>
+            <ul>
+                <li *ngFor="let keyword of keywords; let i = index">
+                    {{i}} {{keyword.title}}
+                    <span class="delete" (click)="deletekeyword(Keyword._id)">Delete</span>
+                </li>
+            </ul>
+            
+        </td>
+        <td>
+            <h3 class="mb-3 text-center">Create KeyWord</h3>
+
+            <div class="form-group">
+                <input type="text" [(ngModel)]="keyword.title" class="form-control" placeholder="Title">
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block" (click)="addKeyword()">Create KeyWord</button>
+            </div>
+        </td>
+    </tr>
+</table>
