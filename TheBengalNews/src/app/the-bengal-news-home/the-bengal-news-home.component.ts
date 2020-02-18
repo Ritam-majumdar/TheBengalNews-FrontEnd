@@ -27,7 +27,7 @@ export class TheBengalNewsHomeComponent implements OnInit {
   articlesJson: any = [];
   articles: Article[];
   topNewsArticle: Article;
-  columnsToDisplay = ['title', 'date', 'author', 'place', 'mMenu', 'ddMenu'];
+  columnsToDisplay = ['image', 'title'];
   dataSource: any = [];
   isMobile: boolean = false;
 
