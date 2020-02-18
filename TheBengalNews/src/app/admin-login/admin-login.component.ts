@@ -27,7 +27,7 @@ export class AdminLoginComponent implements OnInit {
       console.log(JSON.parse(window.atob(base64)));
       const decodedToken = JSON.parse(window.atob(base64));
       localStorage.setItem('TbnToken', token);
-      // this.router.navigate(['/articles']);
+      this.router.navigate(['/tbn-admin-dashboard']);
     })
   }
 

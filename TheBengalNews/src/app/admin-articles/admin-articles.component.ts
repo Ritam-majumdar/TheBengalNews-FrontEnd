@@ -6,7 +6,7 @@ import { MatSort, MatTableDataSource, MatPaginator, MatDialog, MatInputModule, M
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { DomSanitizer } from "@angular/platform-browser";
 import { VideoDialogComponent } from '../video-dialog/video-dialog.component';
-
+import { Router } from '@angular/router';
 
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
@@ -39,7 +39,7 @@ export class AdminArticlesComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private tbnadminService: TbnadminService, private dialog: MatDialog) { }
+  constructor(private tbnadminService: TbnadminService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
     this.getArticles(); 
@@ -81,6 +81,13 @@ export class AdminArticlesComponent implements OnInit {
     dialogConfig.data = id;
 
     this.dialog.open(VideoDialogComponent, dialogConfig);
+}
+
+logout(){
+  if (window.confirm('Are you sure, you want to logout?')){
+  localStorage.removeItem('TbnToken');
+  this.router.navigate(['/home']);
+  }
 }
 
 }

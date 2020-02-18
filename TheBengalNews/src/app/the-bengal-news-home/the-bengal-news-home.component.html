@@ -1,67 +1,84 @@
 <mat-card [ngClass]="isMobile ? 'top-card-mobile': 'top-card'">
     <div>
-        <button mat-button (click)="showTopArticle(topNewsArticle.title)">
+        <h2> <i class="material-icons">
+                grade
+            </i> টপ নিউজ </h2>
+        <button mat-button (click)="showTopArticle()">
             <img src="{{topNewsArticle.articleImage}}" style="width:100%; height:auto">
-            <h2>{{topNewsArticle.title}}</h2>
+            <!-- <img *ngIf = "isMobile" src="{{topNewsArticle.articleImage}}" style="width:70%; height:auto"> -->
+
+
         </button>
+        <h2 mat-bitton (click)="showTopArticle()">{{topNewsArticle.title}}</h2>
     </div>
     <div>
         <h2><i class="material-icons">
                 reorder
             </i> নিউজ ফ্ল্যাশ <i class="material-icons">
                 offline_bolt
-                </i></h2>
+            </i></h2>
         <app-news-flash></app-news-flash>
     </div>
 
 </mat-card>
 
-<!-- <div class="mat-elevation-z8">
-            
-            <mat-card style="width: 70%; float: left; margin: 2%;">
-                <mat-card-content>
-                    <img src="{{topNewsArticle.articleImage}}" width="100%" height="300rem">
-                </mat-card-content>  
-                <mat-card-content>
-                    <h2>{{topNewsArticle.title}}</h2>
-                </mat-card-content>  
-                
-            </mat-card>
-                        <app-news-flash></app-news-flash>
-    
+
+
+<div class="mat-elevation-z8">
+
+    <mat-card style="width: 70%; float: left; margin: 2%;">
+        <mat-card-content>
+            <img src="{{topNewsArticle.articleImage}}" width="100%" height="300rem">
+        </mat-card-content>
+        <mat-card-content>
+            <h2>{{topNewsArticle.title}}</h2>
+        </mat-card-content>
+
+    </mat-card>
+    <app-news-flash></app-news-flash>
+
     <mat-form-field class="tableFilter">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
     </mat-form-field>
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
+        <ng-container matColumnDef="image">
+            <td mat-cell *matCellDef="let element" style="width: 30%;"> <img src="{{element.articleImage}}"
+                    width="100%"> </td>
+        </ng-container>
+
         <ng-container matColumnDef="title">
-            <td mat-cell *matCellDef="let element" style="text-align: left; color: blue;"> <span class="mat-button" (click)="deleteArticle(element._id)">{{element.title}}</span></td>
+            <td mat-cell mat-button (click)="showArticle(element.title)" *matCellDef="let element" style="padding: 1%;">
+                <table>
+                    <tr>
+                        <td>
+                            {{element.place}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h3>{{element.title}}</h3>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td>
+                            {{element.author}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
         </ng-container>
 
-        <ng-container matColumnDef="date">
-            <td mat-cell *matCellDef="let element" style="text-align: left;">
-                {{element.createdAt | date: 'dd-MM-yyyy /hh-mm a'}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="author">
-            <td mat-cell *matCellDef="let element"> {{element.author}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="place">
-            <td mat-cell *matCellDef="let element"> {{element.place}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="mMenu">
-            <td mat-cell *matCellDef="let element"> {{element.mMenu}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="ddMenu">
-            <td mat-cell *matCellDef="let element"> {{element.ddMenu}} </td>
-        </ng-container>
 
 
-        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" ></tr>
+        <!-- <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr> -->
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
     </table>
     <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
- -->

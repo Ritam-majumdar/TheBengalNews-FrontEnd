@@ -11,6 +11,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
 })
 export class TheBengalNewsArticleComponent implements OnInit {
   article: any = {};
+  video: string = "";
   constructor(public tbnadminService: TbnadminService,
     public actRoute: ActivatedRoute,
     public router: Router) { }
@@ -25,6 +26,7 @@ export class TheBengalNewsArticleComponent implements OnInit {
     this.tbnadminService.getArticleByTitle(title).subscribe((data: {}) => {
       console.log(data);
       this.article = data[0];
+      this.video = "https://www.youtube.com/embed/" + this.article.youtubeLink;
     
   });
 

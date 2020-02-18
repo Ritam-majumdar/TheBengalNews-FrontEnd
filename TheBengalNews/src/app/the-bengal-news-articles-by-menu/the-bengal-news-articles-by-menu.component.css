@@ -6,10 +6,16 @@
     flex: 1 1 auto;
   }
 
-  .card-mobile{
-      width: 100%;
+  .top-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1%;
   }
-
-  .card-normal{
-      width: 70%;
+  
+  .top-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1%;
   }

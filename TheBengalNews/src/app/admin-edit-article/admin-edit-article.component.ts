@@ -95,4 +95,11 @@ export class AdminEditArticleComponent implements OnInit {
     // console.log(this.articleImage);
   }
 
+  logout(){
+    if (window.confirm('Are you sure, you want to logout?')){
+    localStorage.removeItem('TbnToken');
+    this.router.navigate(['/home']);
+    }
+  }
+
 }

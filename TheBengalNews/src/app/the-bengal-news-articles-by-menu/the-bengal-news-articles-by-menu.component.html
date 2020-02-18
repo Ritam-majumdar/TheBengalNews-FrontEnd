@@ -1,11 +1,25 @@
 
-<mat-card style="padding: 2%;">
-    <mat-card-content style="width: 70%; float: left; margin-right: 5%;">
-        <img src="{{topNewsArticle.articleImage}}" width="100%" height="300rem">
+<mat-card  [ngClass]="isMobile ? 'top-card-mobile': 'top-card'">
+    <div>
+        <h2> <i class="material-icons">
+            grade
+            </i> {{ddMenu}} টপ নিউজ </h2>
+        <button mat-button (click)="showTopArticle(topNewsArticle.title)">
+            <img src="{{topNewsArticle.articleImage}}" style="width:100%; height:auto">
+            <!-- <img *ngIf = "isMobile" src="{{topNewsArticle.articleImage}}" style="width:70%; height:auto"> -->
+
+            
+        </button>
         <h2>{{topNewsArticle.title}}</h2>
-    </mat-card-content>
-    
-    <mat-card-content><h3>News Flash</h3><app-news-flash></app-news-flash></mat-card-content >
+    </div>
+    <div>
+        <h2><i class="material-icons">
+                reorder
+            </i> নিউজ ফ্ল্যাশ <i class="material-icons">
+                offline_bolt
+                </i></h2>
+        <app-news-flash></app-news-flash>
+    </div>
 
 </mat-card>
 <div class="mat-elevation-z8">
@@ -19,7 +33,7 @@
                 
                 <span class="example-spacer"></span>
                 <mat-form-field class="tableFilter">
-                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="সার্চ">
                 </mat-form-field>
               </mat-toolbar-row>
             </mat-toolbar>

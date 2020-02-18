@@ -35,7 +35,7 @@ export class VideoDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this. video = "https://www.youtube.com/embed/" + this.str;
+    this.video = "https://www.youtube.com/embed/" + this.str;
     console.log(this.video);
   }
 

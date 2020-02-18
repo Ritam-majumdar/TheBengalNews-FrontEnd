@@ -7,10 +7,12 @@
     <mat-card-content class="card-content">
         <h3>{{article.author}}</h3>
         <h4>{{article.place}} {{article.dateBengali}}</h4>
-        <!-- <share-buttons theme="material-dark" show="11" image="https://loremflickr.com/320/240"></share-buttons> -->
         <img src="{{article.articleImage}}" class="responsive">
-        <mat-card>
+        <mat-card *ngIf= "article.content">
             <p style="white-space: pre-line">{{article.content}}</p>
+        </mat-card>
+        <mat-card *ngIf = "article.youtubeLink">
+            <iframe id="ytplayer" type="text/html" width="640" height="360" [src]="video | safe" frameborder="0"></iframe>
         </mat-card>
     </mat-card-content>
 </mat-card>

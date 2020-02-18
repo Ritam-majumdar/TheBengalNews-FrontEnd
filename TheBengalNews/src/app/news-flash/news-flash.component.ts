@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TbnadminService } from '../tbnadmin.service';
 import { Article } from '../article';
 declare function autoScroll(): any;
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-news-flash',
@@ -12,7 +14,7 @@ export class NewsFlashComponent implements OnInit {
   articlesJson: any = [];
   articles: Article[];
 
-  constructor(public tbnadminService: TbnadminService) { }
+  constructor(public tbnadminService: TbnadminService, private route: Router) { }
 
   ngOnInit() {
     this.getNewsFlash();
@@ -29,6 +31,12 @@ export class NewsFlashComponent implements OnInit {
 
     });
   }
+
+  showArticle(title){
+    this.route.navigate(['/home/'+ title])
+  }
+
+  
 
 
 }

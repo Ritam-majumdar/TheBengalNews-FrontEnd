@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+
 //Material Modules
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
@@ -37,12 +38,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 
+
 import { TheBengalNewsHomeComponent } from './the-bengal-news-home/the-bengal-news-home.component';
 import { NewsFlashComponent } from './news-flash/news-flash.component';
 
 // import social buttons module
-import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
-import { ShareButtonsModule  } from '@ngx-share/buttons';
 import { TheBengalNewsArticlesByMenuComponent } from './the-bengal-news-articles-by-menu/the-bengal-news-articles-by-menu.component';
 import { TheBengalNewsArticleComponent } from './the-bengal-news-article/the-bengal-news-article.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -50,6 +50,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
+// import { ShareButtonModule  } from 'ngx-sharebuttons';
 
 @NgModule({
   declarations: [
@@ -94,9 +95,8 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
-    JwSocialButtonsModule,
     MatSidenavModule,
-    ShareButtonsModule,
+    // ShareButtonModule,
     MatListModule,
     MatMenuModule
   ],

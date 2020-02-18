@@ -45,7 +45,14 @@ export class AdminKeywordComponent implements OnInit {
         this.getKeywords()
       })
     }
-  }  
+  }
+  
+  logout(){
+    if (window.confirm('Are you sure, you want to logout?')){
+    localStorage.removeItem('TbnToken');
+    this.router.navigate(['/home']);
+    }
+  }
 
 
 }

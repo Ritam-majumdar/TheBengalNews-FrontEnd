@@ -63,4 +63,8 @@ export class TheBengalNewsHomeComponent implements OnInit {
     this.route.navigate(['/home/'+this.topNewsArticle.title])
   }
 
+  showArticle(title){
+    this.route.navigate(['/home/'+ title])
+  }
+
 }

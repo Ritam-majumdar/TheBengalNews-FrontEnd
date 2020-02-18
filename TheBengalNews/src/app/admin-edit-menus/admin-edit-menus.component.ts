@@ -74,4 +74,11 @@ export class AdminEditMenusComponent implements OnInit {
     }
   }
 
+  logout(){
+    if (window.confirm('Are you sure, you want to logout?')){
+    localStorage.removeItem('TbnToken');
+    this.router.navigate(['/home']);
+    }
+  }
+
 }

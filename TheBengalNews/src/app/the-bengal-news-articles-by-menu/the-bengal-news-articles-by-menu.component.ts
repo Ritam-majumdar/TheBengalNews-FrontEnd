@@ -18,7 +18,9 @@ export class TheBengalNewsArticlesByMenuComponent implements OnInit {
   columnsToDisplay = ['image', 'title'];
   dataSource: any = [];
   topNewsArticle: Article;
-  mobile: boolean = false;
+  isMobile: boolean = false;
+  mainMenu: string = "";
+  ddMenu: string = "";
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(public tbnadminService: TbnadminService,
@@ -27,9 +29,8 @@ export class TheBengalNewsArticlesByMenuComponent implements OnInit {
 
   ngOnInit() {
     if (window.screen.width <= 768) { // 768px portrait
-      this.mobile = true;
+      this.isMobile = true;
     }
-    console.log(this.mobile);
     this.actRoute.params.subscribe(routeParams => {
       this.getArticles(routeParams.mMenu, routeParams.ddMenu);
     });
@@ -42,6 +43,8 @@ export class TheBengalNewsArticlesByMenuComponent implements OnInit {
       this.articlesJson = data;
       this.articles = this.articlesJson;
       console.log("Menus" + mMenu + ddMenu);
+      this.mainMenu = mMenu;
+      this.ddMenu = ddMenu;
       this.articles.forEach(element => {
         if(element.topNewsDdMenu == true){
           this.topNewsArticle = element;
@@ -54,6 +57,10 @@ export class TheBengalNewsArticlesByMenuComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  showTopArticle(){
+    this.router.navigate(['/home/'+this.topNewsArticle.title])
   }
 
 }
