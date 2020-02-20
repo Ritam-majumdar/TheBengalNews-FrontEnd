@@ -31,7 +31,7 @@ export class UploadImageComponent implements OnInit {
     for (var i = 0; i < this.uploadedFiles.length; i++) {
       formData.append("uploads", this.uploadedFiles[i], this.uploadedFiles[i].name);
     }
-    this.http.post('http://localhost:3000/upload', formData)
+    this.http.post('http://172.105.125.158:3000/upload', formData)
       .subscribe((response) => {
         console.log('response received is ', response);
         this.responseMessage = response;

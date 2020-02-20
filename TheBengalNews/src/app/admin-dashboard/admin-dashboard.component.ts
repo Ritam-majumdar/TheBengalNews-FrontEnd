@@ -26,6 +26,11 @@ export class AdminDashboardComponent implements OnInit {
     this.router.navigate(['/keywords']);
   }
 
+  openSocial(){
+    console.log("Open Social");
+    this.router.navigate(['/social']);
+  }
+
   logout(){
     if (window.confirm('Are you sure, you want to logout?')){
     localStorage.removeItem('TbnToken');

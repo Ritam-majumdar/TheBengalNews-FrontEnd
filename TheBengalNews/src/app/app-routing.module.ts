@@ -12,6 +12,7 @@ import { TheBengalNewsArticleComponent} from './the-bengal-news-article/the-beng
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
+import { AdminSocialComponent } from './admin-social/admin-social.component';
 import { from } from 'rxjs';
 import { AuthGuard } from './auth/auth.guard';
 
@@ -24,11 +25,12 @@ const routes: Routes = [
   { path: 'tbnadminlogin', component: AdminLoginComponent },
   { path: 'tbn-admin-dashboard', component: AdminDashboardComponent},
   { path: 'articles', component: AdminArticlesComponent },
-  { path: 'create-article', component: AdminCreateArticleComponent,canActivate:[AuthGuard] },
+  { path: 'create-article', component: AdminCreateArticleComponent},
   { path: 'edit-article/:articleId', component: AdminEditArticleComponent },
   { path: 'manage-menus', component: AdminMenusComponent },
   { path: 'edit-menus/:mainMenuId', component: AdminEditMenusComponent },
-  { path: 'keywords', component: AdminKeywordComponent }
+  { path: 'keywords', component: AdminKeywordComponent },
+  { path: 'social', component: AdminSocialComponent }
 ];
 
 @NgModule({

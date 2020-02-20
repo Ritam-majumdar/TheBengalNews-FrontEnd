@@ -91,7 +91,7 @@ export class AdminEditArticleComponent implements OnInit {
   receiveMessage($event) {
     console.log($event);
     this.articleImage = $event;
-    this.articleData.articleImage = "http://localhost:3000/" + this.articleImage;
+    this.articleData.articleImage = "http://172.105.125.158:3000/" + this.articleImage;
     // console.log(this.articleImage);
   }
 

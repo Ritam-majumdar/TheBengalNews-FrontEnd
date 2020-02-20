@@ -74,17 +74,21 @@
     display: flex;
     margin: .5% auto;
     padding: 0 16px;
+    margin-top: 2%;
+    margin-bottom: 2%;
     /* max-width: 960px; */
     flex-direction: column;
     align-items: center;
   }
 
-  .footer{
+  .footer-toolbar{
     
-    /* display: flex; */
-    /* align-items: center; */
     background-color: #1976d2;
     color: white;
     font-weight: 600;
   
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
   }

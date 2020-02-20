@@ -7,6 +7,7 @@ import { Keyword } from '../app/keyword';
 import { User } from '../app/user';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Social } from './social';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class TbnadminService {
 
   // Define API
-  apiURL = 'http://localhost:3000';
+  apiURL = 'http://172.105.125.158:3000';
 
   constructor(private http: HttpClient) { }
 
@@ -236,6 +237,51 @@ export class TbnadminService {
   // HttpClient API delete() method => Delete keyword
   deleteKeyword(id) {
     return this.http.delete<Keyword>(this.apiURL + '/keywords/' + id, this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // HttpClient API get() method => Fetch socials list
+  getSocials(): Observable<Social> {
+    return this.http.get<Social>(this.apiURL + '/socialMedia')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // HttpClient API get() method => Fetch social
+  getSocial(id): Observable<Social> {
+    return this.http.get<Social>(this.apiURL + '/socialMedia/' + id)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // HttpClient API post() method => Create social
+  createSocial(social): Observable<Social> {
+    return this.http.post<Social>(this.apiURL + '/socialMedia', JSON.stringify(social), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // HttpClient API put() method => Update social
+  updateSocial(id, social): Observable<Social> {
+    return this.http.put<Social>(this.apiURL + '/socialMedia/' + id, JSON.stringify(social), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+  }
+
+  // HttpClient API delete() method => Delete social
+  deleteSocial(id) {
+    return this.http.delete<Social>(this.apiURL + '/socialMedia/' + id, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
