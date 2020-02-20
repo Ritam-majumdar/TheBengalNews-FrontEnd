@@ -51,6 +51,7 @@ import { AdminSignupComponent } from './admin-signup/admin-signup.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { AdminSocialComponent } from './admin-social/admin-social.component';
+import { SocialButtonsComponent } from './social-buttons/social-buttons.component';
 // import { ShareButtonModule  } from 'ngx-sharebuttons';
 
 @NgModule({
@@ -73,7 +74,8 @@ import { AdminSocialComponent } from './admin-social/admin-social.component';
     AdminDashboardComponent,
     AdminSignupComponent,
     MobileHeaderComponent,
-    AdminSocialComponent
+    AdminSocialComponent,
+    SocialButtonsComponent
     
   ],
   imports: [

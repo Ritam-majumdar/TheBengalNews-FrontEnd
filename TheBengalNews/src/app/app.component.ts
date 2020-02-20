@@ -22,6 +22,7 @@ export class AppComponent implements OnInit{
   ddMenusMainMenu: DdMenu[];
   refMenu: string = "";
   isMobile: boolean = false;
+  public now: Date = new Date();
 
   constructor(private tbnadminService: TbnadminService, private router: Router) { }
 
@@ -30,6 +31,9 @@ export class AppComponent implements OnInit{
     if (window.screen.width <= 768) { // 768px portrait
       this.isMobile = true;
     }
+    setInterval(() => {
+      this.now = new Date();
+    }, 1);
     this.getMainMenus();
     this.getDdMenus();
   }

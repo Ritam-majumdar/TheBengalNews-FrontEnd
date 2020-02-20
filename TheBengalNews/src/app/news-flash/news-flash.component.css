@@ -18,7 +18,7 @@ ul{
   position:relative;
 }
 li{
-  height:100px;
+  height:100%;
   background-color:rgba(57, 173, 117,0.3);
    text-align:center;
   border-bottom:1px solid #333;
@@ -26,6 +26,9 @@ li{
 h3{
   color:#fff;
   padding-top:10px;
+  padding-bottom:10px;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 p{
   text-align:left;

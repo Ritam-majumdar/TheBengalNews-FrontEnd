@@ -12,7 +12,6 @@ import { TheBengalNewsArticleComponent} from './the-bengal-news-article/the-beng
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminSignupComponent } from './admin-signup/admin-signup.component';
-import { AdminSocialComponent } from './admin-social/admin-social.component';
 import { from } from 'rxjs';
 import { AuthGuard } from './auth/auth.guard';
 
@@ -21,16 +20,15 @@ const routes: Routes = [
   { path: 'home', component: TheBengalNewsHomeComponent },
   { path: 'home/:mMenu/:ddMenu', component: TheBengalNewsArticlesByMenuComponent },
   { path: 'home/:articletitle', component: TheBengalNewsArticleComponent },
-  { path: 'tbnadminsignup', component: AdminSignupComponent },
+  { path: 'tbnadminsignup', component: AdminSignupComponent,canActivate:[AuthGuard]  },
   { path: 'tbnadminlogin', component: AdminLoginComponent },
-  { path: 'tbn-admin-dashboard', component: AdminDashboardComponent},
-  { path: 'articles', component: AdminArticlesComponent },
-  { path: 'create-article', component: AdminCreateArticleComponent},
-  { path: 'edit-article/:articleId', component: AdminEditArticleComponent },
-  { path: 'manage-menus', component: AdminMenusComponent },
-  { path: 'edit-menus/:mainMenuId', component: AdminEditMenusComponent },
-  { path: 'keywords', component: AdminKeywordComponent },
-  { path: 'social', component: AdminSocialComponent }
+  { path: 'tbn-admin-dashboard', component: AdminDashboardComponent,canActivate:[AuthGuard] },
+  { path: 'articles', component: AdminArticlesComponent,canActivate:[AuthGuard]  },
+  { path: 'create-article', component: AdminCreateArticleComponent,canActivate:[AuthGuard] },
+  { path: 'edit-article/:articleId', component: AdminEditArticleComponent,canActivate:[AuthGuard]  },
+  { path: 'manage-menus', component: AdminMenusComponent,canActivate:[AuthGuard]  },
+  { path: 'edit-menus/:mainMenuId', component: AdminEditMenusComponent,canActivate:[AuthGuard]  },
+  { path: 'keywords', component: AdminKeywordComponent,canActivate:[AuthGuard]  }
 ];
 
 @NgModule({

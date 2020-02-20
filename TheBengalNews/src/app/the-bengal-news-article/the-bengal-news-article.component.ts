@@ -12,6 +12,10 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
 export class TheBengalNewsArticleComponent implements OnInit {
   article: any = {};
   video: string = "";
+  articlesJson: any = [];
+  articles: Article[];
+  relatedKeyword: string;
+  relatedArticle: String;
   constructor(public tbnadminService: TbnadminService,
     public actRoute: ActivatedRoute,
     public router: Router) { }
@@ -21,6 +25,9 @@ export class TheBengalNewsArticleComponent implements OnInit {
       this.getArticle(routeParams.articletitle);
 
     });
+
+    this.getArticles();
+
   }
   getArticle(title) {
     this.tbnadminService.getArticleByTitle(title).subscribe((data: {}) => {
@@ -32,4 +39,27 @@ export class TheBengalNewsArticleComponent implements OnInit {
 
 
   }
+
+  getArticles() {
+    this.articlesJson = [];
+    this.tbnadminService.getArticles().subscribe((data: {}) => {
+      this.articlesJson = data;
+      this.articles = this.articlesJson;
+      this.articles.forEach(element => {
+        this.article.keywords.forEach( x => {
+          if(element.keywords.includes(x))
+          {
+            if(element.title != this.article.title)
+            {
+              this.relatedArticle = element.title;
+            this.relatedKeyword = x;
+            console.log(this.relatedArticle);
+            }
+            
+          }
+        });
+
+    });
+  });
+}
 }

@@ -28,5 +28,25 @@
         <mat-card *ngIf = "article.youtubeLink">
             <iframe id="ytplayer" type="text/html" width="640" height="360" [src]="video | safe" frameborder="0"></iframe>
         </mat-card>
-    </mat-card-content>
+        <div class="keywords">
+        <h3>কীওয়ার্ডস: </h3>
+            <mat-chip-list>
+                <mat-chip *ngFor="let keyword of article.keywords">
+                    {{keyword}}
+
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_email"></a>
+    <a class="a2a_button_whatsapp"></a>
+    <a class="a2a_button_copy_link"></a>
+    </div>
+    <div *ngIf= "relatedKeyword"><h4>{{relatedKeyword}} সমন্ধে আরও পড়ুন:</h4><h3>{{relatedArticle}}</h3></div>
+       
+</mat-card-content>
 </mat-card>
