@@ -40,7 +40,7 @@ export class UploadImageComponent implements OnInit {
         this.uploaded = true;
 
       })
-
+      
 
 
 
